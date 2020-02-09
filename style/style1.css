@@ -1,0 +1,239 @@
+body{
+  font-family: 'Segoe UI';
+}
+.nav-item{
+    font-family: 'Segoe UI';
+    font-weight: 550;
+    padding: 8px;
+    font-size:1vw;
+  }
+  
+nav .navbar-nav li a{
+    color: black !important;
+  }
+  
+nav .navbar-nav li a:hover{
+    border-bottom:  1px solid black;
+}
+
+.overlay{
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: black;
+    position: fixed;
+    transition: 0.8s;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+  
+.overlay a{
+    width: 100%;
+    font-family: 'Segoe UI';
+    font-size: 2.5em;
+    transition: 0.3s;
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+}
+  
+.overlay a:hover{
+    width: 100%;
+    font-family: 'Segoe UI';
+    font-size: 2.5em;
+    transition: 0.3s;
+    color: gray ;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+}
+  
+#mynav{
+    z-index:99999;
+}
+  
+.closebutton{
+    margin-left: 90%;
+    font-size: 5em;
+}
+  
+.overlay-content{
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    top:8%;
+    width: 100%;
+    text-align: center;
+    left:10;
+    position: relative;
+    font-size:1.5vw;
+}
+  
+#search{
+    z-index:99999;
+}
+
+.button{
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Segoe UI';
+    font-size: 1em;
+}
+
+.button:hover{
+  color: lightslategrey;
+}
+
+/*Footer CSS List*/
+.container-fluid{
+  background-color: black;
+  color: white;
+}
+
+.row{
+  padding-top: 2em ;
+}
+
+.h4{
+  font-family: 'Segoe UI';
+  text-align: center;
+}
+
+.list{
+  list-style-type: none;
+  display: inline-block;
+  overflow:hidden;
+  align-content: center;
+}
+
+.list li{
+  display: inline-block;
+  padding-left: 4.2em;
+  padding-top: 2em;
+  color: white;
+}
+
+#footer-content{
+  text-align: center;
+}
+
+.list-nav a{
+  list-style-type: none;
+  color: white;
+}
+
+.list-nav li{
+  list-style-type: none;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.list-nav li a:hover{
+  font-family: 'Segoe UI';
+  width: 100%;
+  font-size: 1em;
+  text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+}
+
+.overlay-search{
+    width: 500px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    background-color: black;
+    border: 1px solid lightslategray;
+    color: white;
+    font-family: 'Segoe UI';
+    font-size: 2vw;
+    text-align: center;
+    text-transform:uppercase;
+}
+
+.empty-box{
+    height:80px;
+}
+
+.sign-up-form{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width:100%;
+}
+
+#form-table{
+    margin-left: auto;
+    margin-right: auto;
+    max-width:100%;
+    font-weight: 500;
+}
+
+.table-row{
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+.table-col{
+  padding-right: 5em;
+}
+
+.textInput{
+  border: 2px solid black;
+  width:20em;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#login{
+  z-index:99999;
+}
+
+.carousel{
+  background: white;
+}
+
+.carousel-item{
+  text-align: center;
+}
+
+.carousel-slider{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.fav-button{
+  background-color: rgb(206, 208, 211) ;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-family: 'Segoe UI';
+  font-size: 1em; 
+  position:absolute;
+  left:65%;
+  bottom:0.8%;
+}
+
+.desc-fav-button{
+  background-color: rgb(143, 149, 156) ;
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-family: 'Segoe UI';
+  font-size: 1em; 
+}
