@@ -1,0 +1,122 @@
+<?php
+	ob_start();
+	session_start();
+  
+	if (empty($_SESSION['username'])){
+    	include ('header.php');
+	}
+	else{
+    	include ('loggedheader.php');
+	}
+
+	if(isset($_POST['AddCategory'])){
+		if (!empty($_FILES['images']['name'])){
+			$cat_image= $_FILES['images']['name'];
+        	$file_loc= $_FILES['images']['tmp_name'];
+        	$file_store="../images/".$cat_image;
+
+			move_uploaded_file($file_loc, $file_store);
+		}
+		else{
+			$cat_image=$_POST['loadimage'];
+		}
+		extract($_POST);
+
+		$sql="INSERT INTO category (CATEGORY_NAME,CATEGORY_DESCRIPTION,CATEGORY_IMAGE)
+	          VALUES('$categoryname','$categorydesc','$cat_image')";
+	   
+    	include ('connection.php');
+		$qry=mysqli_query($db, $sql);
+
+		if($qry){
+			header('Location: manage-category.php');
+		}
+		else{
+        	header('Location: manage-category.php');
+        	ob_end_fluch();
+		}
+	}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <!--Head of the webpage-->
+    <head>
+        <!--Icon Image that displays in the head of the webpage-->
+        <link rel="shortcut icon" href="../images/icon.ico" />
+        <!--Title of the page-->
+        <title>Add Category - EDC Warehouse</title>
+        <!--Meta data set for Unicode acceptance-->
+        <meta charset="utf-8"/>
+        <!--Meta tag to represent the author of the website-->
+        <meta name="author" content="Avhimanhu Sapkota (c7202323)"/>
+        <!--Keywords that optimizes the Search Engine-->
+        <meta name="keywords" content=" "/>
+        <!--Description that optimizes the Search Engine Result-->
+        <meta name="description" content=" "/>
+        <!--Link to Bootstrap-->
+        <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+        <!--Link to Style Sheet Page-->
+        <link rel="stylesheet" type="text/css" href="../style/style1.css">
+	</head>
+	
+	<body>
+		<div class="empty-box"></div>    
+		<h2 style="text-align:center">Add Category</h2>
+		<div class="empty-box"></div>
+	
+		<table border=0 cellpadding=6 cellspacing=10 style='margin: auto auto;'>
+			<form method='POST' name='AddCategory' action='' enctype="multipart/form-data">
+   	 			<tr>
+   	 				<td>CATEGORY NAME</td>
+					<td><input type='text' name='categoryname' autocomplete="off" required ></td>
+				</tr>
+
+				<tr>
+   	 				<td>CATEGORY_IMAGE</td>
+					<td><input type='file' name='images'> UPLOAD FROM DATABASE: <select name='loadimage'> 
+							<?php
+								$path='../images/';
+								if(is_dir($path)){
+									$files=scandir($path);
+									for($i=0;$i<count($files);$i++){
+										if($files[$i] != '.' && $files[$i] !='..'){
+											echo"<option value='$files[$i]'> $files[$i] </option>";
+										}
+									}
+								}
+							?>
+					</select></td>
+				</tr>
+
+				<tr>
+   	 				<td>CATEGORY_DESCRIPTION</td>
+					<td><textarea name='categorydesc'></textarea></td>
+				</tr>
+				
+    			<tr>
+					<td></td>
+					<td>
+    					<input type='submit' name='AddCategory' value='Add Category' class='button'>
+					</td>
+				</tr>
+			</form>
+		</table>
+
+		<div class='empty-box'></div>   
+
+		<script src="../ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('categorydesc');
+        </script>
+	</body>
+</html>
+
+<?php
+    if (empty($_SESSION['username'])){
+        include ('footer.html');
+    }
+    else{
+        include ('loggedfooter.php');
+    }
+?>
